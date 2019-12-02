@@ -4,7 +4,7 @@
 */
 import java.util.*;
 
-public class Life{
+public abstract class Life{
 	
 	protected int id;
 	protected String name;
@@ -49,13 +49,15 @@ public class Life{
 		return lifespan;
 	}
 
-
+	
 	public Life( int id, String name,int age,  int lifespan){ //parameterized constructor
 		this.id= id;
 		this.name= name;
 		this.age= age;
 		this.lifespan= lifespan;
 	}
+	
+	public abstract Life eat(ArrayList<Life> lives, int foodCount);
 
 	public void increaseAge(){ //to increase age
 		if(age<lifespan)
