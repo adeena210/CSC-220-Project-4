@@ -8,13 +8,13 @@ At equal interval (defined in the text file), every life gives birth to another 
 
 There will be 7 classes in the project:
 
-Life (Base class for Animal and Plant):
+//Life (Base class for Animal and Plant):
 
-Properties: id (unique id), name, age, starvingDays, lifespan
-Constructor: parameterized constructor
-Methods:
-increaseAge(): increase the age of life
-public abstract Life eat(ArrayList<Life> lives, int foodCount): randomly eats one of the foods from the list of lives. The list will have foodCount no of foods to choose from
+//Properties: id (unique id), name, age, starvingDays, lifespan
+//Constructor: parameterized constructor
+//Methods:
+//increaseAge(): increase the age of life
+//public abstract Life eat(ArrayList<Life> lives, int foodCount): randomly eats one of the foods from the list of lives. The list will have foodCount no of foods to choose from
 Animal (extends Life):
 
 Constructor: parameterized constructor to support superclass
