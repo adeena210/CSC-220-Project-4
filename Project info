@@ -1,0 +1,60 @@
+Design and implement a jungle. There are be two types of lives in the jungle – animals and plants. There are two types of animals – herbivore and carnivore. Herbivores eat plant and carnivores eat herbivores.
+
+The jungle starts with a set number of lives defined in the text filePreview the document. Upon creation, every life’s age is 1. Every day, every animal tries to eat one random food. Herbivores eat before carnivores. The possibility of finding food for an animal is defined in a text file. The text file will also have other information about the jungle.
+
+The jungle has a total capacity of lives (defined in the text file). If the jungle reaches its capacity, the jungle becomes “unstable”. If the jungle has no lives, the jungle also becomes “unstable.” You can add herbivores, carnivores, and plants, show the current status of the jungle, run X number of days, run the jungle till it is unstable (reaches the capacity or either total animal becomes zero or total plants become zero). If an animal does not eat for n number of days (defined in the text file), the animal dies. If a life reaches its lifespan, it dies.
+
+At equal interval (defined in the text file), every life gives birth to another life. The newborn’s age will be 1.
+
+There will be 7 classes in the project:
+
+Life (Base class for Animal and Plant):
+
+Properties: id (unique id), name, age, starvingDays, lifespan
+Constructor: parameterized constructor
+Methods:
+increaseAge(): increase the age of life
+public abstract Life eat(ArrayList<Life> lives, int foodCount): randomly eats one of the foods from the list of lives. The list will have foodCount no of foods to choose from
+Animal (extends Life):
+
+Constructor: parameterized constructor to support superclass
+Herbivore (extends Animal):
+
+Constructor: parameterized constructor to support superclass
+Methods: override eat method
+Carnivore (extends Animal):
+
+Constructor: parameterized constructor to support superclass
+Methods: override eat method
+Plant (extends Life):
+
+Properties: none
+Constructor: parameterized constructor to support superclass
+Methods: none
+Jungle:
+
+Properties: HashMap<String,Float> properties, ArrayList<Life> lives, String dailyLog, …. you may add others, but not any other lists. Do not maintain separate list for animal and plants
+Constructor: Empty constructor that read a text file and fill in the required properties.
+Methods:
+addLife(): add a life in the list of lives.
+runADay(): simulate jungle for a day. The sequence of events is – Herbivore eating, Carnivore eating, birth, death by starvation, death by overage.  You can create separate methods for these events.
+oneDayStat(): append one day statistics to a output.txtPreview the document file.
+PS: the format of remaining lives is id: name, type, age, starvationDays, lifespan
+
+JungleManager(Contains main method):
+
+Methods:
+Exit
+Add Herbivore
+Add Carnivore
+Add plant
+Run X day
+Run till unstable
+main()
+printOptions(): print the options that the user can choose from:
+Exit: exits the program
+Add herbivore: ask for the herbivore’s name, count and lifespan. Generated incremental id automatically. Upon creation, the age of an herbivore is 1 day.
+Add carnivore: ask for the carnivore’s name, count and lifespan. Generated incremental id automatically. Upon creation, the age of a carnivore is 1 day.
+Add plants: ask for the animal’s name, count and lifespan. Generated incremental id automatically. Upon creation, the age of a plant is 1 day.
+Run X day: ask for how many days to simulate the program and print the logs for X days to the output file.
+Run till unstable: runs the program until the jungle is unstable and prints the logs till the
