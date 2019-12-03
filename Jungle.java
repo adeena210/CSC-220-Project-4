@@ -9,13 +9,7 @@ import java.io.FileNotFoundException;
 
 public class Jungle{
 	
-	private double herbivoreEatingProbability;
-	private double carnivoreEatingProbability;
-	private int herbivoreStarvationMax;
-	private int carnivoreStarvationMax;
-	private int plantBirthingInverval;
-	private int herbivoreBirthingInverval;
-	private int carnivoreBirthingInverval;
+	HashMap<String, float> properties= new HashMap<String, float>():
 	private int capacity;
 	private String status;
 	private ArrayList<Life> lives;
@@ -34,14 +28,16 @@ public class Jungle{
 			
 		
 		 	try{
-				capacity=sc.nextInt();
-				herbivoreEatingProbability=sc.nextInt();
-				carnivoreEatingProbability=sc.nextInt();
-				herbivoreStarvationMax=sc.nextInt();
-				carnivoreStarvationMax=sc.nextInt();
-				plantBirthingInverval=sc.nextInt();
-				herbivoreBirthingInverval=sc.nextInt();
-				carnivoreBirthingInverval=sc.nextInt();
+				properties.put("capacity", sc.nextInt());
+				properties.put("herbivoreEatingProbability",sc.nextInt());
+				properties.put("carnivoreEatingProbability",sc.nextInt());
+				properties.put("herbivoreStarvationMax",sc.nextInt());
+				properties.put("carnivoreStarvationMax",sc.nextInt());
+				properties.put("plantBirthingInverval",sc.nextInt());
+				properties.put("herbivoreBirthingInverval",sc.nextInt());
+				properties.put("carnivoreBirthingInverval",sc.nextInt());
+				
+				
 				while(sc.hasNextLine()){
 					String name= sc.next();
 					String type=sc.next();
