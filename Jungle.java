@@ -9,8 +9,8 @@ import java.io.FileNotFoundException;
 
 public class Jungle{
 	
-	HashMap<String, float> properties= new HashMap<String, float>():
-	private int capacity;
+	HashMap<String, float> properties = new HashMap<String, float>():
+	private int capacity;		//change to float!!
 	private String status;
 	private ArrayList<Life> lives;
 	private int dayNumber;
@@ -24,8 +24,6 @@ public class Jungle{
 		try{
 			File input = new File(filename);
 			sc= new Scanner(input);
-			
-			
 		
 		 	try{
 				properties.put("capacity", sc.nextInt());
@@ -45,7 +43,7 @@ public class Jungle{
 					int lifespan= sc.nextInt();
 					if(type.equals("herbivore")){
 						for(int i=0;i<count;i++){
-						Life l= new Herbivore(createId(), name, 1, lifespan);
+						Life l = new Herbivore(createId(), name, 1, lifespan);
 						lives.add(l);
 						}
 					}
@@ -65,27 +63,22 @@ public class Jungle{
 							
 						}
 						
-					
-				
 			}
 			catch (Exception excpt){
 				System.out.println("Invalid Input");
 		    
 			}
 		}
-		
 		}
 	
 		catch (FileNotFoundException excpt) {
 			System.out.println("File not found");
-		}
-			
+		}	
 
 		finally{
 			if(sc!=null)
 				sc.close();
 		}
-
 
 		
 		status= "unstable";
@@ -95,10 +88,8 @@ public class Jungle{
 		eatingLog="";
 		plantCount=0;
 		herbivoreCount=0;
-		carnivoreCount=0;
-		
+		carnivoreCount=0;	
 	}
-
 	
 	public String getStatus(){ //getter for status
     	return status;
