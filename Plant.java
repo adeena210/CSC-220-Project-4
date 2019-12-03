@@ -14,8 +14,4 @@ public class Plant extends Life{
 	public void plantDescription(){ //print description
 		System.out.println(id+": "+name+", plant, "+age+", "+lifespan);
 	}
-	
-	public abstract Life eat(ArrayList<Life> lives, int foodCount){
-		return null;
-	}
 }
