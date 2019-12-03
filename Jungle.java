@@ -27,36 +27,36 @@ public class Jungle{
 		
 		 	try{
 				properties.put("capacity", sc.nextInt());
-				properties.put("herbivoreEatingProbability",sc.nextInt());
-				properties.put("carnivoreEatingProbability",sc.nextInt());
-				properties.put("herbivoreStarvationMax",sc.nextInt());
-				properties.put("carnivoreStarvationMax",sc.nextInt());
-				properties.put("plantBirthingInverval",sc.nextInt());
-				properties.put("herbivoreBirthingInverval",sc.nextInt());
-				properties.put("carnivoreBirthingInverval",sc.nextInt());
+				properties.put("herbivoreEatingProbability", sc.nextInt());
+				properties.put("carnivoreEatingProbability", sc.nextInt());
+				properties.put("herbivoreStarvationMax", sc.nextInt());
+				properties.put("carnivoreStarvationMax", sc.nextInt());
+				properties.put("plantBirthingInverval", sc.nextInt());
+				properties.put("herbivoreBirthingInverval", sc.nextInt());
+				properties.put("carnivoreBirthingInverval", sc.nextInt());
 				
 				
 				while(sc.hasNextLine()){
-					String name= sc.next();
-					String type=sc.next();
-					int count= sc.nextInt();
-					int lifespan= sc.nextInt();
+					String name = sc.next();
+					String type = sc.next();
+					int count = sc.nextInt();
+					int lifespan = sc.nextInt();
 					if(type.equals("herbivore")){
-						for(int i=0;i<count;i++){
+						for(int i = 0; i < count; i++){
 						Life l = new Herbivore(createId(), name, 1, lifespan);
 						lives.add(l);
 						}
 					}
 					else 
 						if(type.equals("carnivore")){
-						for(int i=0;i<count;i++){
-						Life l= new Carnivore(createId(), name, 1, lifespan);
+						for(int i = 0; i < count; i++){
+						Life l = new Carnivore(createId(), name, 1, lifespan);
 						lives.add(l);
 						}
 					}
 					else
 						if(type.equals("plant")){
-						for(int i=0;i<count;i++){
+						for(int i = 0; i < count; i++){
 						Life l= new Plant(createId(), name, 1, lifespan);
 						lives.add(l);
 						}
@@ -151,8 +151,8 @@ public class Jungle{
 
 				else{
 					((Animal)lives.get(i)).setDaysSinceEaten(((Animal)lives.get(i)).getDaysSinceEaten()+1);
-					if (((Animal)lives.get(i)).getDaysSinceEaten()==3){
-						deathLog=deathLog+lives.get(i).getId()+"(starvation), ";
+					if (((Animal)lives.get(i)).getDaysSinceEaten() == 3){
+						deathLog = deathLog + lives.get(i).getId() + "(starvation), ";
           				animalCount--;
 				 		lives.remove(i);
           				 i--;
@@ -163,7 +163,7 @@ public class Jungle{
 		}
     
 
-		if(animalCount==0 || plantCount==0)
+		if(animalCount == 0 || plantCount == 0)
 			status="unstable";
 
 
@@ -172,10 +172,10 @@ public class Jungle{
 	public void oneDayStat(){ //prints out day's events
 	    System.out.println();
 	    System.out.println();
-	 	System.out.println("Day: "+dayNumber+" Capacity: "+capacity);
-	 	System.out.println("Eating today: "+ eatingLog);
-	 	System.out.println("Death: "+ deathLog);
-	 	System.out.println("Status: "+status);
+	 	System.out.println("Day: " + dayNumber + " Capacity: " + capacity);
+	 	System.out.println("Eating today: " + eatingLog);
+	 	System.out.println("Death: " + deathLog);
+	 	System.out.println("Status: " +status);
 	 	System.out.println();
 	 	System.out.println("Remaining lives: ");
     
