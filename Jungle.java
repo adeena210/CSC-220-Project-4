@@ -87,19 +87,19 @@ public class Jungle{
 		}
 
 
-		capacity=0;
+		
 		status= "unstable";
 		lives= new ArrayList<Life>();
 		dayNumber=0;
 		deathLog="";
 		eatingLog="";
 		plantCount=0;
-		animalCount=0;
+		herbivoreCount=0;
+		carnivoreCount=0;
+		
 	}
 
-	public void setCapacity(int capacity){  //setter for capacity
-    	this.capacity=capacity;
-	}
+	
 	public String getStatus(){ //getter for status
     	return status;
 	}
