@@ -20,25 +20,25 @@ public class Animal extends Life{
 		return daysSinceEaten;
 	}
 
-	public int eat(ArrayList<Life> lives, int plantCount){ //method to eat, return index of plant eaten
+	public Life eat(ArrayList<Life> lives, int foodCount){ //method to eat, return index of plant eaten
 		Random rnd= new Random();
-		if(plantCount!=0){	
+		if(foodCount!=0){	
     		int count=0;
-    		int plantNum=rnd.nextInt(plantCount)+1; //randomly selects a plant
+    		int foodNum=rnd.nextInt(foodCount)+1; //randomly selects a plant
    
     	for(int i =0; i<lives.size();i++){
     		Life l=lives.get(i);
-    		if(l instanceof Plant){
+    		if(l instanceof Animal==false){
     			count++;
     		}
-    		if(count==plantNum){
+    		if(count==foodNum){
     			daysSinceEaten=0;
-    			return i;
+    			return l;
     			}
     		}
     	}
 			
-    	return -1;
+    	return null;
 		
 	}
 
