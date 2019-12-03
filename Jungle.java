@@ -79,7 +79,6 @@ public class Jungle{
 			if(sc!=null)
 				sc.close();
 		}
-
 		
 		status= "unstable";
 		lives= new ArrayList<Life>();
@@ -130,8 +129,7 @@ public class Jungle{
 			deathLog = deathLog + lives.get(i).getId() + "(overage), ";
 			lives.remove(i);
            	if(i>0)
-           		i--; 
-				 
+           		i--;
 			}
 
 			if (lives.get(i) instanceof Animal){ //eating
@@ -159,14 +157,10 @@ public class Jungle{
 					}
 				}
 			}
-
 		}
-    
 
 		if(animalCount == 0 || plantCount == 0)
 			status="unstable";
-
-
 		}
 
 	public void oneDayStat(){ //prints out day's events
@@ -185,19 +179,6 @@ public class Jungle{
 				((Plant)lives.get(i)).plantDescription();
 			else
 				((Animal)lives.get(i)).animalDescription();
-
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
