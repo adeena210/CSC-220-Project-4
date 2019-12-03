@@ -3,18 +3,94 @@
     Project 3: Jungle Management System
 */
 import java.util.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public class Jungle{
+	
+	private double herbivoreEatingProbability;
+	private double carnivoreEatingProbability;
+	private int herbivoreStarvationMax;
+	private int carnivoreStarvationMax;
+	private int plantBirthingInverval;
+	private int herbivoreBirthingInverval;
+	private int carnivoreBirthingInverval;
 	private int capacity;
 	private String status;
 	private ArrayList<Life> lives;
 	private int dayNumber;
 	private String deathLog; 
 	private String eatingLog;
-	private int animalCount;
+	private int herbivoreCount;
+	private int carnivoreCount;
 	private int plantCount;
 
 	public Jungle(){ //default constructor
+		try{
+			File input = new File(filename);
+			sc= new Scanner(input);
+			
+			
+		
+		 	try{
+				capacity=sc.nextInt();
+				herbivoreEatingProbability=sc.nextInt();
+				carnivoreEatingProbability=sc.nextInt();
+				herbivoreStarvationMax=sc.nextInt();
+				carnivoreStarvationMax=sc.nextInt();
+				plantBirthingInverval=sc.nextInt();
+				herbivoreBirthingInverval=sc.nextInt();
+				carnivoreBirthingInverval=sc.nextInt();
+				while(sc.hasNextLine()){
+					String name= sc.next();
+					String type=sc.next();
+					int count= sc.nextInt();
+					int lifespan= sc.nextInt();
+					if(type.equals("herbivore")){
+						for(int i=0;i<count;i++){
+						Life l= new Herbivore(createId(), name, 1, lifespan);
+						lives.add(l);
+						}
+					}
+					else 
+						if(type.equals("carnivore")){
+						for(int i=0;i<count;i++){
+						Life l= new Carnivore(createId(), name, 1, lifespan);
+						lives.add(l);
+						}
+					}
+					else
+						if(type.equals("plant")){
+						for(int i=0;i<count;i++){
+						Life l= new Plant(createId(), name, 1, lifespan);
+						lives.add(l);
+						}
+							
+						}
+						
+					
+				
+			}
+			catch (Exception excpt){
+				System.out.println("Invalid Input");
+		    
+			}
+		}
+		
+		}
+	
+		catch (FileNotFoundException excpt) {
+			System.out.println("File not found");
+		}
+			
+
+		finally{
+			if(sc!=null)
+				sc.close();
+		}
+
+
 		capacity=0;
 		status= "unstable";
 		lives= new ArrayList<Life>();
