@@ -128,6 +128,37 @@ public class Jungle{
 		deathLog="";
 		eatingLog="";
 		dayNumber++;
+		
+		for (int i=0; i<lives.size(); i++){ 
+			if(lives.get(i) instanceof Herbivore){
+				Random rnd = new Random();
+				int probability=rnd.nextInt(properties.get("herbivoreEatingProbability"));
+				if(probability<=(properties.get("herbivoreEatingProbability")*10) && plantCount!=0){ 
+					Life l = ((Herbivore)lives.get(i)).eat(lives, plantCount);
+        			if(l!=null){
+         		 		plantCount--;
+					eatingLog=eatingLog+lives.get(i).getId()+" ate "+lives.get(j).getId()+", ";
+					deathLog=deathLog+lives.get(j).getId()+"(food), ";	
+          				lives.remove(l);
+          				if(j<i)
+          					i--;
+					}
+					lives.remove(l);
+      			}
+
+				else{
+					((Animal)lives.get(i)).setDaysSinceEaten(((Animal)lives.get(i)).getDaysSinceEaten()+1);
+					if (((Animal)lives.get(i)).getDaysSinceEaten()==3){
+						deathLog=deathLog+lives.get(i).getId()+"(starvation), ";
+          				animalCount--;
+				 		lives.remove(i);
+          				 i--;
+					}
+				}
+			}
+				
+			
+			
 		for (int i=0; i<lives.size(); i++){ //aging
 			lives.get(i).increaseAge();
 			if (lives.get(i).getAge()==lives.get(i).getLifespan()){
