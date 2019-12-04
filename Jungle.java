@@ -232,7 +232,7 @@ public class Jungle{
 			
     
 
-		if(animalCount==0 || plantCount==0)
+		if(lives.size()==0||lives.size()==properties.get("capacity"))
 			status="unstable";
 
 
@@ -253,7 +253,11 @@ public class Jungle{
 			if (lives.get(i) instanceof Plant)
 				((Plant)lives.get(i)).plantDescription();
 			else
-				((Animal)lives.get(i)).animalDescription();
+				if (lives.get(i) instanceof Herbivore)
+				((Herbivore)lives.get(i)).herbivoreDescription();
+				
+				else
+					((Carnivore)lives.get(i)).carnivoreDescription();
 
 		}
 	}
