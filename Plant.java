@@ -7,8 +7,9 @@ public class Plant extends Life{
 		
 	}
 
-	public void plantDescription(){ //print description
-		System.out.println(id+": "+name+", plant, "+age+", "+lifespan);
+	public String plantDescription(){ //print description
+		String line= id+": "+name+", plant, "+age+", "+lifespan;
+		return line;
 	}
 	
 	public Life eat(ArrayList<Life> lives, int foodCount){
