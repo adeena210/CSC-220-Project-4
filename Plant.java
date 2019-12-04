@@ -11,7 +11,7 @@ public class Plant extends Life{
 		System.out.println(id+": "+name+", plant, "+age+", "+lifespan);
 	}
 	
-	public abstract Life eat(ArrayList<Life> lives, int foodCount){
+	public Life eat(ArrayList<Life> lives, int foodCount){
 		return null;
 	}
 }
