@@ -55,12 +55,9 @@ public class Jungle{
 						for(int i=0;i<count;i++){
 						Life l= new Plant(createId(), name, 1, lifespan);
 						lives.add(l);
-						}
-							
-						}
-						
+						}	
+						}		
 					
-				
 			}
 // 			catch (Exception excpt){
 // 				System.out.println("Invalid Input");
@@ -150,7 +147,7 @@ public class Jungle{
 				}
 			}
 					  
-		for (int i=0; i<lives.size(); i++){ 
+		for (i=0; i<lives.size(); i++){ 
 			if(lives.get(i) instanceof Carnivore){
 				Random rnd = new Random();
 				int probability=rnd.nextInt(10)+1;
@@ -204,7 +201,7 @@ public class Jungle{
 				
 			
 			
-		for (int i=0; i<lives.size(); i++){ //aging
+		for (i=0; i<lives.size(); i++){ //aging
 			lives.get(i).increaseAge();
 			if (lives.get(i).getAge()==lives.get(i).getLifespan()){
 				if (lives.get(i) instanceof Herbivore)
