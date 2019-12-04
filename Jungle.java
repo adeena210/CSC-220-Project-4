@@ -19,9 +19,7 @@ public class Jungle{
 	public Jungle(){ //default constructor
 		try{
 			File input = new File(filename);
-			sc= new Scanner(input);
-			
-			
+			sc = new Scanner(input);
 		
 		 	try{
 				properties.put("capacity", sc.nextInt());
@@ -64,10 +62,9 @@ public class Jungle{
 					
 				
 			}
-			catch (Exception excpt){
-				System.out.println("Invalid Input");
-		    
-			}
+// 			catch (Exception excpt){
+// 				System.out.println("Invalid Input");
+// 			}
 		}
 		
 		}
