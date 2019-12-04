@@ -97,7 +97,10 @@ public class Jungle{
   	if(l instanceof Plant)	
   		plantCount++;
   	else
-  		animalCount++;
+	   if(l instanceof Herbivore) 
+  		herbivoreCount++;
+		else
+			carnivoreCount++;
 
 	lives.add(l);
 	if(lives.size()>=capacity){
