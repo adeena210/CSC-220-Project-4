@@ -42,10 +42,6 @@ public class Animal extends Life{
 		
 	}
 
-	public void animalDescription(){ //print description
-		System.out.println(id+": "+name+", animal, "+age+", "+lifespan);
-	}
-
 
 }
 
