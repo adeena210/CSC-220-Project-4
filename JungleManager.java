@@ -1,6 +1,6 @@
-/* Adeena Ahmed
+/* Adeena Ahmed, Lalima Bhola, Faith Christian
     CSC 220-03
-    Project 3: Jungle Management System
+    Project 4: Jungle Management System w/ added features
 */
 import java.util.*;
 public class JungleManager{
@@ -33,11 +33,11 @@ public class JungleManager{
 	    
 //             case 2: //Add animal
 //             System.out.println("Enter animal name: ");
-//             String name=scnr.next();
+//             String name = scnr.next();
 //             System.out.println("Enter animal lifespan: ");
-//             int lifespan= scnr.nextInt();
+//             int lifespan = scnr.nextInt();
 //             System.out.println("Enter animal count: ");
-//             int count=scnr.nextInt();
+//             int count = scnr.nextInt();
 //             for(int i=0;i<count;i++){
 //                 int id=j.createId();
 //                 Life n= new Animal(id, name, 1, lifespan);
@@ -50,11 +50,11 @@ public class JungleManager{
                     
             case 4: //Add plant
             System.out.println("Enter plant name: ");
-            name=scnr.next();
+            String name = scnr.next();
             System.out.println("Enter plant lifespan: ");
-            lifespan= scnr.nextInt();
+            int lifespan = scnr.nextInt();
             System.out.println("Enter plant count: ");
-            count=scnr.nextInt();
+            String count = scnr.nextInt();
             for(int i=0;i<count;i++){
                 int id=j.createId();
                 Life l= new Plant(id, name, 1, lifespan);
