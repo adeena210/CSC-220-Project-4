@@ -223,6 +223,7 @@ public class Jungle{
 			output=new FileOutputStream("output.txt",true);
 	   
 	 	output.write(("Day: "+dayNumber+" Capacity: "+capacity).getBytes());
+		if (status.equals("unstable")){	
 	 	output.write(("Eating today: "+ eatingLog).getBytes());
 	 	output.write(("Death: "+ deathLog).getBytes());
 	 	output.write(("Status: "+status).getBytes());
@@ -239,5 +240,13 @@ public class Jungle{
 					output.write((Carnivore)lives.get(i)).carnivoreDescription().getBytes());
 
 		}
+		}
+		else
+			output.write("Unstable!!!".getBytes());
 	}
+		
+		catch( IOException ex)
+		{
+			System.out.print("File not found");
+		}
 }
