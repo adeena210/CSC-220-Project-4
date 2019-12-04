@@ -55,9 +55,9 @@ public class JungleManager{
             int lifespan = scnr.nextInt();
             System.out.println("Enter plant count: ");
             String count = scnr.nextInt();
-            for(int i=0;i<count;i++){
-                int id=j.createId();
-                Life l= new Plant(id, name, 1, lifespan);
+            for(int i = 0; i<count; i++){
+                int id = j.createId();
+                Life l = new Plant(id, name, 1, lifespan);
                 j.addLife(l);
 
         	}
@@ -73,7 +73,7 @@ public class JungleManager{
                     
             case 5: //Run X day
             System.out.print("Enter number of days: ");
-            int num=scnr.nextInt();
+            int num = scnr.nextInt();
             for(int i=0;i<num;i++)
               j.runADay();
             j.oneDayStat();
