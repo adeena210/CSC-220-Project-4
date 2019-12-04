@@ -1,5 +1,5 @@
 import java.util.*;
-import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
@@ -215,25 +215,25 @@ public class Jungle{
 		}
 
 	public void oneDayStat(){ //prints out day's events
-	    System.out.println();
-	    System.out.println();
-	 	System.out.println("Day: "+dayNumber+" Capacity: "+capacity);
-	 	System.out.println("Eating today: "+ eatingLog);
-	 	System.out.println("Death: "+ deathLog);
-	 	System.out.println("Status: "+status);
-	 	System.out.println();
-	 	System.out.println("Remaining lives: ");
+		FileOutputStream output=null;
+		try{
+			output=new FileOutputStream("output.txt",true);
+	   
+	 	output.write(("Day: "+dayNumber+" Capacity: "+capacity).getBytes());
+	 	output.write(("Eating today: "+ eatingLog).getBytes());
+	 	output.write(("Death: "+ deathLog).getBytes());
+	 	output.write(("Status: "+status).getBytes());
+	 	output.write(("Remaining lives: ").getBytes());
     
 		for (int i=0; i<lives.size(); i++) 
 		{
 			if (lives.get(i) instanceof Plant)
-				((Plant)lives.get(i)).plantDescription();
+				output.write((Plant)lives.get(i)).plantDescription().getBytes());
 			else
 				if (lives.get(i) instanceof Herbivore)
-				((Herbivore)lives.get(i)).herbivoreDescription();
-				
+				output.write((Herbivore)lives.get(i)).herbivoreDescription().getBytes());
 				else
-					((Carnivore)lives.get(i)).carnivoreDescription();
+					output.write((Carnivore)lives.get(i)).carnivoreDescription().getBytes());
 
 		}
 	}
