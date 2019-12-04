@@ -11,9 +11,10 @@ public class JungleManager{
 	   System.out.println("1: Exit");
 	   System.out.println("2: Add Herbivore");   //need this
 	   System.out.println("3: Add Carnivore");   //need this
-	   System.out.println("4: Add plant");
-	   System.out.println("5: Run X day");
-	   System.out.println("6: Run till unstable");
+	   System.out.println("5: Add plant");
+	   System.out.println("4: Show Current Status");
+	   System.out.println("6: Run X day");
+	   System.out.println("7: Run till unstable");
       
        System.out.print("Enter your choice: ");
        int option = scnr.nextInt();
@@ -24,29 +25,45 @@ public class JungleManager{
             break;
         
 	    case 2: //Add herbivore
+            System.out.println("Enter herbivore name: ");
+           String name = scnr.next();
+            System.out.println("Enter herbivore lifespan: ");
+          int lifespan = scnr.nextInt();
+            System.out.println("Enter herbivore count: ");
+             int count = scnr.nextInt();
+            for(int i=0;i<count;i++){
+                int id=j.createId();
+                Life n= new Herbivore(id, name, 1, lifespan);
+                j.addLife(n);
+        	}
+             if(j.getStatus().equals("unstable"))
+                 System.out.println("WARNING! Jungle is unstable");
+             printOptions(j);
+             break;
 	    
 	    break;
 	    
 	    case 3: //Add Carnivore
+            System.out.println("Enter carnivore name: ");
+           String name = scnr.next();
+            System.out.println("Enter carnivore lifespan: ");
+          int lifespan = scnr.nextInt();
+            System.out.println("Enter carnivore count: ");
+             int count = scnr.nextInt();
+            for(int i=0;i<count;i++){
+                int id=j.createId();
+                Life n= new Carnivore(id, name, 1, lifespan);
+                j.addLife(n);
+        	}
+             if(j.getStatus().equals("unstable"))
+                 System.out.println("WARNING! Jungle is unstable");
+             printOptions(j);
+             break;
 	    
 	    break;
 	    
-//             case 2: //Add animal
-//             System.out.println("Enter animal name: ");
-//             String name = scnr.next();
-//             System.out.println("Enter animal lifespan: ");
-//             int lifespan = scnr.nextInt();
-//             System.out.println("Enter animal count: ");
-//             int count = scnr.nextInt();
-//             for(int i=0;i<count;i++){
-//                 int id=j.createId();
-//                 Life n= new Animal(id, name, 1, lifespan);
-//                 j.addLife(n);
-//         	}
-//             if(j.getStatus().equals("unstable"))
-//                 System.out.println("WARNING! Jungle is unstable");
-//             printOptions(j);
-//             break;
+//             
+//             
                     
             case 4: //Add plant
             System.out.println("Enter plant name: ");
@@ -66,12 +83,12 @@ public class JungleManager{
             printOptions(j);
             break;
                     
-//             case 4: //Show current status
-//             j.oneDayStat();
-//             printOptions(j);
-//             break;
+           case 5: //Show current status
+           j.oneDayStat();
+             printOptions(j);
+            break;
                     
-            case 5: //Run X day
+            case 6: //Run X day
             System.out.print("Enter number of days: ");
             int num = scnr.nextInt();
             for(int i=0;i<num;i++)
@@ -80,7 +97,7 @@ public class JungleManager{
             printOptions(j);
             break;
             
-            case 6: //Run until unstable
+            case 7: //Run until unstable
             while(j.getStatus().equals("stable"))
             	j.runADay();
             j.oneDayStat();
