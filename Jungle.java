@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 
 public class Jungle{
 	
-	HashMap<String, float> properties= new HashMap<>();
+	HashMap<String, Float> properties= new HashMap<>();
 	private int capacity;
 	private String status;
 	private ArrayList<Life> lives;
@@ -238,5 +238,3 @@ public class Jungle{
 		}
 	}
 }
-
-
