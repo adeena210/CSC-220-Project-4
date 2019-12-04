@@ -59,25 +59,20 @@ public class Jungle{
 						}		
 					
 			}
-// 			catch (Exception excpt){
-// 				System.out.println("Invalid Input");
-// 			}
+			catch (Exception excpt){
+				System.out.println("Invalid Input");
+			}
 		}
-		
-		}
-	
 		catch (FileNotFoundException excpt) {
 			System.out.println("File not found");
 		}
-			
+	}
 
 		finally{
 			if(sc!=null)
 				sc.close();
 		}
 
-
-		
 		status= "unstable";
 		lives= new ArrayList<Life>();
 		dayNumber=0;
@@ -194,13 +189,8 @@ public class Jungle{
 					   Life l = Plant(createId(), lives.get(i).getName(), 1, life.get(i).getLifespan());
 					   lives.add(l);
 				   }
-			   }	
-					    
-					    
-					    
-				
-			
-			
+			   }		
+		
 		for (i=0; i<lives.size(); i++){ //aging
 			lives.get(i).increaseAge();
 			if (lives.get(i).getAge()==lives.get(i).getLifespan()){
@@ -219,12 +209,8 @@ public class Jungle{
 				 
 			}
 
-			
-    
-
 		if(lives.size()==0||lives.size()==properties.get("capacity"))
 			status="unstable";
-
 
 		}
 
