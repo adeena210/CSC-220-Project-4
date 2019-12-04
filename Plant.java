@@ -1,7 +1,3 @@
-/* Adeena Ahmed
-    CSC 220-03
-    Project 3: Jungle Management System
-*/
 import java.util.*;
 
 public class Plant extends Life{
