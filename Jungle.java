@@ -132,40 +132,95 @@ public class Jungle{
 		for (int i=0; i<lives.size(); i++){ 
 			if(lives.get(i) instanceof Herbivore){
 				Random rnd = new Random();
-				int probability=rnd.nextInt(properties.get("herbivoreEatingProbability"));
+				int probability=rnd.nextInt(10)+1;
 				if(probability<=(properties.get("herbivoreEatingProbability")*10) && plantCount!=0){ 
 					Life l = ((Herbivore)lives.get(i)).eat(lives, plantCount);
         			if(l!=null){
          		 		plantCount--;
-					eatingLog=eatingLog+lives.get(i).getId()+" ate "+lives.get(j).getId()+", ";
-					deathLog=deathLog+lives.get(j).getId()+"(food), ";	
-          				lives.remove(l);
-          				if(j<i)
+					eatingLog=eatingLog+lives.get(i).getId()+" ate "+l.getId()+", ";
+					deathLog=deathLog+l.getId()+"(food), ";	
+          				
+          				if(lives.indexOf(l)<i)
           					i--;
 					}
 					lives.remove(l);
       			}
 
 				else{
-					((Animal)lives.get(i)).setDaysSinceEaten(((Animal)lives.get(i)).getDaysSinceEaten()+1);
-					if (((Animal)lives.get(i)).getDaysSinceEaten()==3){
+					((Herbivore)lives.get(i)).setDaysSinceEaten(((Herbivore)lives.get(i)).getDaysSinceEaten()+1);
+					if (((Herbivore)lives.get(i)).getDaysSinceEaten()==properties.get("herbivoreStarvationMax"){
 						deathLog=deathLog+lives.get(i).getId()+"(starvation), ";
-          				animalCount--;
+          				herbivoreCount--;
 				 		lives.remove(i);
           				 i--;
 					}
 				}
 			}
+					  
+		for (int i=0; i<lives.size(); i++){ 
+			if(lives.get(i) instanceof Carnivore){
+				Random rnd = new Random();
+				int probability=rnd.nextInt(10)+1;
+				if(probability<=(properties.get("carnivoreEatingProbability")*10) && herbivoreCount!=0){ 
+					Life l = ((Carnivore)lives.get(i)).eat(lives, herbivoreCount);
+        			if(l!=null){
+         		 		herbivoreCount--;
+					eatingLog=eatingLog+lives.get(i).getId()+" ate "+l.getId()+", ";
+					deathLog=deathLog+l.getId()+"(food), ";	
+          				
+          				if(lives.indexOf(l)<i)
+          					i--;
+					}
+					lives.remove(l);
+      			}
+
+				else{
+					((Carnivore)lives.get(i)).setDaysSinceEaten(((Carnivore)lives.get(i)).getDaysSinceEaten()+1);
+					if (((Carnivore)lives.get(i)).getDaysSinceEaten()==properties.get("carnivoreStarvationMax"){
+						deathLog=deathLog+lives.get(i).getId()+"(starvation), ";
+          				carnivoreCount--;
+				 		lives.remove(i);
+          				 i--;
+					}
+				}
+			}
+					  
+                   for (int i=0;i<lives.size();i++){ // birth
+			   if(lives.get(i) instanceof Herbivore){
+				   if (lives.get(i).getAge()%properties.get("herbivoreBirthingInverval")==0){
+					   Life l = Herbivore(createId(), lives.get(i).getName(), 1, life.get(i).getLifespan());
+					   lives.add(l);
+				   }
+			   }
+			   else
+				if(lives.get(i) instanceof Carnivore){
+				   if (lives.get(i).getAge()%properties.get("carnivoreBirthingInverval")==0){
+					   Life l = Carnivore(createId(), lives.get(i).getName(), 1, life.get(i).getLifespan());
+					   lives.add(l);
+				   }
+			   }
+			   	else
+				  	if (lives.get(i).getAge()%properties.get("plantBirthingInverval")==0){
+					   Life l = Plant(createId(), lives.get(i).getName(), 1, life.get(i).getLifespan());
+					   lives.add(l);
+				   }
+			   }	
+					    
+					    
+					    
 				
 			
 			
 		for (int i=0; i<lives.size(); i++){ //aging
 			lives.get(i).increaseAge();
 			if (lives.get(i).getAge()==lives.get(i).getLifespan()){
-				if (lives.get(i) instanceof Plant)
-					plantCount--;
+				if (lives.get(i) instanceof Herbivore)
+					herbivoreCount--;
 				else
-					animalCount--;
+					if (lives.get(i) instanceof Carnivore)
+					carnivoreCount--;
+					else
+						plantCount--;
 		
 			deathLog = deathLog + lives.get(i).getId() + "(overage), ";
 			lives.remove(i);
@@ -174,33 +229,7 @@ public class Jungle{
 				 
 			}
 
-			if (lives.get(i) instanceof Animal){ //eating
-				Random rnd = new Random();
-				int probability=rnd.nextInt(2);
-				if(probability==1 && plantCount!=0){ 
-					int j = ((Animal)lives.get(i)).eat(lives, plantCount);
-        			if(j!=-1){
-         		 		plantCount--;
-						eatingLog=eatingLog+lives.get(i).getId()+" ate "+lives.get(j).getId()+", ";
-						deathLog=deathLog+lives.get(j).getId()+"(food), ";	
-          				lives.remove(j);
-          				if(j<i)
-          					i--;
-					}
-      			}
-
-				else{
-					((Animal)lives.get(i)).setDaysSinceEaten(((Animal)lives.get(i)).getDaysSinceEaten()+1);
-					if (((Animal)lives.get(i)).getDaysSinceEaten()==3){
-						deathLog=deathLog+lives.get(i).getId()+"(starvation), ";
-          				animalCount--;
-				 		lives.remove(i);
-          				 i--;
-					}
-				}
-			}
-
-		}
+			
     
 
 		if(animalCount==0 || plantCount==0)
