@@ -178,7 +178,7 @@ public class Jungle{
 				}
 			}
 					  
-                   for (int i=0;i<lives.size();i++){ // birth
+                   for (i=0;i<lives.size();i++){ // birth
 			   if(lives.get(i) instanceof Herbivore){
 				   if (lives.get(i).getAge()%properties.get("herbivoreBirthingInverval")==0){
 					   Life l = Herbivore(createId(), lives.get(i).getName(), 1, life.get(i).getLifespan());
