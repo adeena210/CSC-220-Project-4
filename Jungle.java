@@ -1,7 +1,3 @@
-/* Adeena Ahmed
-    CSC 220-03
-    Project 3: Jungle Management System
-*/
 import java.util.*;
 import java.io.File;
 import java.io.IOException;
