@@ -28,5 +28,11 @@ public Life eat(ArrayList<Life> lives, int plantCount){
     	return null;
 		
 	}
+
+	
+	public void herbivoreDescription(){ //print description
+		System.out.println(id+": "+name+", herbivore, "+age+", "+lifespan);
+	}
+
   
   }
