@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
@@ -17,19 +18,20 @@ public class Jungle{
 	private int plantCount;
 
 	public Jungle(){ //default constructor
+		 Scanner sc=null;
 		try{
-			File input = new File(filename);
+			File input = new File("input.txt");
 			sc = new Scanner(input);
 		
 		 	try{
-				properties.put("capacity", sc.nextInt());
-				properties.put("herbivoreEatingProbability",sc.nextInt());
-				properties.put("carnivoreEatingProbability",sc.nextInt());
-				properties.put("herbivoreStarvationMax",sc.nextInt());
-				properties.put("carnivoreStarvationMax",sc.nextInt());
-				properties.put("plantBirthingInverval",sc.nextInt());
-				properties.put("herbivoreBirthingInverval",sc.nextInt());
-				properties.put("carnivoreBirthingInverval",sc.nextInt());
+				properties.put("capacity", sc.nextFloat());
+				properties.put("herbivoreEatingProbability",sc.nextFloat());
+				properties.put("carnivoreEatingProbability",sc.nextFloat());
+				properties.put("herbivoreStarvationMax",sc.nextFloat());
+				properties.put("carnivoreStarvationMax",sc.nextFloat());
+				properties.put("plantBirthingInverval",sc.nextFloat());
+				properties.put("herbivoreBirthingInverval",sc.nextFloat());
+				properties.put("carnivoreBirthingInverval",sc.nextFloat());
 				
 				
 				while(sc.hasNextLine()){
@@ -58,15 +60,15 @@ public class Jungle{
 						}	
 						}		
 					
-			}
-			catch (Exception excpt){
+			}}
+			catch (InputMismatchException excpt){
 				System.out.println("Invalid Input");
 			}
 		}
 		catch (FileNotFoundException excpt) {
 			System.out.println("File not found");
 		}
-	}
+	
 
 		finally{
 			if(sc!=null)
@@ -136,7 +138,7 @@ public class Jungle{
 
 				else{
 					((Herbivore)lives.get(i)).setDaysSinceEaten(((Herbivore)lives.get(i)).getDaysSinceEaten()+1);
-					if (((Herbivore)lives.get(i)).getDaysSinceEaten()==properties.get("herbivoreStarvationMax"){
+					if (((Herbivore)lives.get(i)).getDaysSinceEaten()==properties.get("herbivoreStarvationMax")){
 						deathLog=deathLog+lives.get(i).getId()+"(starvation), ";
           				herbivoreCount--;
 				 		lives.remove(i);
@@ -144,8 +146,9 @@ public class Jungle{
 					}
 				}
 			}
+		}
 					  
-		for (i=0; i<lives.size(); i++){ 
+		for (int i=0; i<lives.size(); i++){ 
 			if(lives.get(i) instanceof Carnivore){
 				Random rnd = new Random();
 				int probability=rnd.nextInt(10)+1;
@@ -164,7 +167,7 @@ public class Jungle{
 
 				else{
 					((Carnivore)lives.get(i)).setDaysSinceEaten(((Carnivore)lives.get(i)).getDaysSinceEaten()+1);
-					if (((Carnivore)lives.get(i)).getDaysSinceEaten()==properties.get("carnivoreStarvationMax"){
+					if (((Carnivore)lives.get(i)).getDaysSinceEaten()==properties.get("carnivoreStarvationMax")){
 						deathLog=deathLog+lives.get(i).getId()+"(starvation), ";
           				carnivoreCount--;
 				 		lives.remove(i);
@@ -172,29 +175,30 @@ public class Jungle{
 					}
 				}
 			}
+		}
 					  
-                   for (i=0;i<lives.size();i++){ // birth
+                   for (int i=0;i<lives.size();i++){ // birth
 			   if(lives.get(i) instanceof Herbivore){
 				   if (lives.get(i).getAge()%properties.get("herbivoreBirthingInverval")==0){
-					   Life l = Herbivore(createId(), lives.get(i).getName(), 1, life.get(i).getLifespan());
+					   Life l = new Herbivore(createId(), lives.get(i).getName(), 1, lives.get(i).getLifespan());
 					   lives.add(l);
 				   }
 			   }
 			   else
 				if(lives.get(i) instanceof Carnivore){
 				   if (lives.get(i).getAge()%properties.get("carnivoreBirthingInverval")==0){
-					   Life l = Carnivore(createId(), lives.get(i).getName(), 1, life.get(i).getLifespan());
+					   Life l = new Carnivore(createId(), lives.get(i).getName(), 1, lives.get(i).getLifespan());
 					   lives.add(l);
 				   }
 			   }
 			   	else
 				  	if (lives.get(i).getAge()%properties.get("plantBirthingInverval")==0){
-					   Life l = Plant(createId(), lives.get(i).getName(), 1, life.get(i).getLifespan());
+					   Life l = new Plant(createId(), lives.get(i).getName(), 1, lives.get(i).getLifespan());
 					   lives.add(l);
 				   }
 			   }		
 		
-		for (i=0; i<lives.size(); i++){ //aging
+		for (int i=0; i<lives.size(); i++){ //aging
 			lives.get(i).increaseAge();
 			if (lives.get(i).getAge()==lives.get(i).getLifespan()){
 				if (lives.get(i) instanceof Herbivore)
@@ -202,8 +206,8 @@ public class Jungle{
 				else
 					if (lives.get(i) instanceof Carnivore)
 					carnivoreCount--;
-					else
-						plantCount--;
+						else
+							plantCount--;
 		
 			deathLog = deathLog + lives.get(i).getId() + "(overage), ";
 			lives.remove(i);
@@ -211,6 +215,7 @@ public class Jungle{
            		i--; 
 				 
 			}
+		}
 
 		if(lives.size()==0||lives.size()==properties.get("capacity"))
 			status="unstable";
@@ -232,12 +237,12 @@ public class Jungle{
 		for (int i=0; i<lives.size(); i++) 
 		{
 			if (lives.get(i) instanceof Plant)
-				output.write((Plant)lives.get(i)).plantDescription().getBytes());
+				output.write(((Plant)lives.get(i)).plantDescription().getBytes());
 			else
 				if (lives.get(i) instanceof Herbivore)
-				output.write((Herbivore)lives.get(i)).herbivoreDescription().getBytes());
+				output.write(((Herbivore)lives.get(i)).herbivoreDescription().getBytes());
 				else
-					output.write((Carnivore)lives.get(i)).carnivoreDescription().getBytes());
+					output.write(((Carnivore)lives.get(i)).carnivoreDescription().getBytes());
 
 		}
 		}
@@ -249,4 +254,5 @@ public class Jungle{
 		{
 			System.out.print("File not found");
 		}
+}
 }

@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Animal extends Life{
-	private int daysSinceEaten;
+	protected int daysSinceEaten;
 
 	public Animal( int id, String name, int age,  int lifespan){ //parameterized constructor to support superclass
 		super(id, name,  age, lifespan);

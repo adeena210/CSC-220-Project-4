@@ -41,15 +41,15 @@ public class JungleManager{
              printOptions(j);
              break;
 	    
-	    break;
+	    
 	    
 	    case 3: //Add Carnivore
             System.out.println("Enter carnivore name: ");
-           String name = scnr.next();
+           name = scnr.next();
             System.out.println("Enter carnivore lifespan: ");
-          int lifespan = scnr.nextInt();
+          lifespan = scnr.nextInt();
             System.out.println("Enter carnivore count: ");
-             int count = scnr.nextInt();
+             count = scnr.nextInt();
             for(int i=0;i<count;i++){
                 int id=j.createId();
                 Life n= new Carnivore(id, name, 1, lifespan);
@@ -60,18 +60,18 @@ public class JungleManager{
              printOptions(j);
              break;
 	    
-	    break;
+	    
 	    
 //             
 //             
                     
             case 4: //Add plant
             System.out.println("Enter plant name: ");
-            String name = scnr.next();
+            name = scnr.next();
             System.out.println("Enter plant lifespan: ");
-            int lifespan = scnr.nextInt();
+            lifespan = scnr.nextInt();
             System.out.println("Enter plant count: ");
-            String count = scnr.nextInt();
+            count = scnr.nextInt();
             for(int i = 0; i<count; i++){
                 int id = j.createId();
                 Life l = new Plant(id, name, 1, lifespan);
@@ -111,9 +111,7 @@ public class JungleManager{
 
     public static void main(String[] args) {
 	   Jungle j= new Jungle();
-       Scanner sc= new Scanner(System.in);
-	   System.out.print("Enter capacity of the jungle: ");
-	   j.setCapacity(sc.nextInt());
+       
 	   printOptions(j);
     }	
 

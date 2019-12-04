@@ -1,0 +1,1 @@
+Day: 0 Capacity: 0Eating today: Death: Status: unstableRemaining lives: 1: plant, plant, 1, 12
