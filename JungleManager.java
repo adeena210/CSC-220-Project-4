@@ -10,8 +10,8 @@ public class JungleManager{
 	   System.out.println();
 	   System.out.println("MENU: ");
 	   System.out.println("1: Exit");
-	   System.out.println("2: Add Herbivore");   //need this
-	   System.out.println("3: Add Carnivore");   //need this
+	   System.out.println("2: Add Herbivore");   
+	   System.out.println("3: Add Carnivore");   
 	   System.out.println("4: Add plant");
 	   System.out.println("5: Show Current Status");
 	   System.out.println("6: Run X day");
@@ -37,8 +37,9 @@ public class JungleManager{
                 Life n = new Herbivore(id, name, 1, lifespan);
                 j.addLife(n);
         	}
-             if(j.getStatus().equals("unstable"))
+             if(j.getStatus().equals("unstable")){
                  System.out.println("WARNING! Jungle is unstable");
+	     }
              printOptions(j);
              break;
 	    
@@ -46,18 +47,19 @@ public class JungleManager{
 	    
 	    case 3: //Add Carnivore
             System.out.println("Enter carnivore name: ");
-           name = scnr.next();
+            name = scnr.next();
             System.out.println("Enter carnivore lifespan: ");
-          lifespan = scnr.nextInt();
+            lifespan = scnr.nextInt();
             System.out.println("Enter carnivore count: ");
-             count = scnr.nextInt();
+            count = scnr.nextInt();
             for(int i = 0; i < count; i++){
                 int id = j.createId();
                 Life n = new Carnivore(id, name, 1, lifespan);
                 j.addLife(n);
         	}
-             if(j.getStatus().equals("unstable"))
+             if(j.getStatus().equals("unstable")){
                  System.out.println("WARNING! Jungle is unstable");
+	     }
              printOptions(j);
              break;     
                     
@@ -74,8 +76,9 @@ public class JungleManager{
                 j.addLife(l);
 
         	}
-            if(j.getStatus().equals("unstable"))
+            if(j.getStatus().equals("unstable")){
                 System.out.println("WARNING! Jungle is unstable");
+	    }
             printOptions(j);
             break;
                     
@@ -107,5 +110,4 @@ public class JungleManager{
        
 	   printOptions(j);
     }	
-
 }
