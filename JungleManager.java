@@ -7,6 +7,7 @@ public class JungleManager{
 	public static void printOptions(Jungle j){
 	   Scanner scnr = new Scanner(System.in);
 	
+	   System.out.println();
 	   System.out.println("MENU: ");
 	   System.out.println("1: Exit");
 	   System.out.println("2: Add Herbivore");   //need this
