@@ -32,9 +32,9 @@ public class JungleManager{
           int lifespan = scnr.nextInt();
             System.out.println("Enter herbivore count: ");
              int count = scnr.nextInt();
-            for(int i=0;i<count;i++){
-                int id=j.createId();
-                Life n= new Herbivore(id, name, 1, lifespan);
+            for(int i = 0; i < count; i++){
+                int id = j.createId();
+                Life n = new Herbivore(id, name, 1, lifespan);
                 j.addLife(n);
         	}
              if(j.getStatus().equals("unstable"))
@@ -51,20 +51,15 @@ public class JungleManager{
           lifespan = scnr.nextInt();
             System.out.println("Enter carnivore count: ");
              count = scnr.nextInt();
-            for(int i=0;i<count;i++){
-                int id=j.createId();
-                Life n= new Carnivore(id, name, 1, lifespan);
+            for(int i = 0; i < count; i++){
+                int id = j.createId();
+                Life n = new Carnivore(id, name, 1, lifespan);
                 j.addLife(n);
         	}
              if(j.getStatus().equals("unstable"))
                  System.out.println("WARNING! Jungle is unstable");
              printOptions(j);
-             break;
-	    
-	    
-	    
-//             
-//             
+             break;     
                     
             case 4: //Add plant
             System.out.println("Enter plant name: ");
@@ -73,7 +68,7 @@ public class JungleManager{
             lifespan = scnr.nextInt();
             System.out.println("Enter plant count: ");
             count = scnr.nextInt();
-            for(int i = 0; i<count; i++){
+            for(int i = 0; i < count; i++){
                 int id = j.createId();
                 Life l = new Plant(id, name, 1, lifespan);
                 j.addLife(l);
@@ -92,7 +87,7 @@ public class JungleManager{
             case 6: //Run X day
             System.out.print("Enter number of days: ");
             int num = scnr.nextInt();
-            for(int i=0;i<num;i++)
+            for(int i = 0; i < num; i++)
               j.runADay();
             j.oneDayStat();
             printOptions(j);
@@ -105,13 +100,10 @@ public class JungleManager{
             printOptions(j);
             break;
          }
-
-
-	
     }
 
     public static void main(String[] args) {
-	   Jungle j= new Jungle();
+	   Jungle j = new Jungle();
        
 	   printOptions(j);
     }	
