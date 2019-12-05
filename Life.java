@@ -11,13 +11,13 @@ public abstract class Life{
 	protected int age;
 	protected int lifespan;
  	public Life( ){ //default constructor
-		this.id= 0;
-		this.name= "none";
-		this.age= 0;
-		this.lifespan= 0;
+		this.id = 0;
+		this.name = "none";
+		this.age = 0;
+		this.lifespan = 0;
 	}
 
-	public void setId( int id){ //setter for id
+	public void setId(int id){ //setter for id
 		this.id=id;
 	}
 	
@@ -25,24 +25,24 @@ public abstract class Life{
 		return id;
 	}
 
-	public void setName( String name){ //setter for name
+	public void setName(String name){ //setter for name
 		this.name=name;
 	}
 	
-	public String  getName( ){ //getter for name
+	public String getName( ){ //getter for name
 		return name;
 	}
 
-	public void setAge( int age){ //setter for age
-		this.age=age;
+	public void setAge(int age){ //setter for age
+		this.age = age;
 	}
 	
 	public int getAge( ){ //getter for age
 		return age;
 	}
 
-	public void setLifespan( int lifespan){ //setter for lifespan
-		this.lifespan=lifespan;
+	public void setLifespan(int lifespan){ //setter for lifespan
+		this.lifespan = lifespan;
 	}
 	
 	public int getLifespan( ){ //getter for lifespan
@@ -50,11 +50,11 @@ public abstract class Life{
 	}
 
 	
-	public Life( int id, String name,int age,  int lifespan){ //parameterized constructor
-		this.id= id;
-		this.name= name;
-		this.age= age;
-		this.lifespan= lifespan;
+	public Life(int id, String name,int age, int lifespan){ //parameterized constructor
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.lifespan = lifespan;
 	}
 	
 	public abstract Life eat(ArrayList<Life> lives, int foodCount);
