@@ -258,22 +258,22 @@ public class Jungle{
 		try{
 			output=new FileOutputStream("output.txt",true);
 	   
-	 	output.write(("Day: "+dayNumber+" Capacity: "+capacity).getBytes());
+	 	output.write(("\nDay: "+dayNumber+" Capacity: "+capacity).getBytes());
 		if (status.equals("stable")){	
-	 	output.write(("Eating today: "+ eatingLog).getBytes());
-	 	output.write(("Death: "+ deathLog).getBytes());
-	 	output.write(("Status: "+status).getBytes());
-	 	output.write(("Remaining lives: ").getBytes());
+	 	output.write(("\nEating today: "+ eatingLog).getBytes());
+	 	output.write(("\nDeath: "+ deathLog).getBytes());
+	 	output.write(("\nStatus: "+status).getBytes());
+	 	output.write(("\nRemaining lives: ").getBytes());
     
 		for (int i=0; i<lives.size(); i++) 
 		{
 			if (lives.get(i) instanceof Plant)
-				output.write(((Plant)lives.get(i)).plantDescription().getBytes());
+				output.write(("\n"+((Plant)lives.get(i)).plantDescription()).getBytes());
 			else
 				if (lives.get(i) instanceof Herbivore)
-				output.write(((Herbivore)lives.get(i)).herbivoreDescription().getBytes());
+				output.write(("\n"+((Herbivore)lives.get(i)).herbivoreDescription()).getBytes());
 				else
-					output.write(((Carnivore)lives.get(i)).carnivoreDescription().getBytes());
+					output.write(("\n"+((Carnivore)lives.get(i)).carnivoreDescription()).getBytes());
 
 		}
 		}
