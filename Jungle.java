@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 
 public class Jungle{
 	
-	HashMap<String, Float> properties= new HashMap<>();
+	HashMap<String, Float> properties = new HashMap<>();
 	private int capacity;
 	private String status;
 	private ArrayList<Life> lives;
@@ -18,9 +18,9 @@ public class Jungle{
 	private int plantCount;
 
 	public Jungle(){ //default constructor
-		 Scanner sc=null;
-		 status= "stable";
-		 lives= new ArrayList<Life>();
+		 Scanner sc = null;
+		 status = "stable";
+		 lives = new ArrayList<Life>();
 		try{
 			File input = new File("input.txt");
 			sc = new Scanner(input);
@@ -53,20 +53,20 @@ public class Jungle{
 				
 				
 				while(sc.hasNextLine()){
-					String name= sc.next();
-					String type=sc.next();
-					int count= sc.nextInt();
-					int lifespan= sc.nextInt();
+					String name = sc.next();
+					String type = sc.next();
+					int count = sc.nextInt();
+					int lifespan = sc.nextInt();
 					if(type.equals("herbivore")){
-						for(int i=0;i<count;i++){
-						Life l= new Herbivore(createId(), name, 1, lifespan);
+						for(int i = 0; i < count; i++){
+						Life l = new Herbivore(createId(), name, 1, lifespan);
 						lives.add(l);
 						}
 					}
 					else 
 						if(type.equals("carnivore")){
-						for(int i=0;i<count;i++){
-						Life l= new Carnivore(createId(), name, 1, lifespan);
+						for(int i = 0; i < count; i++){
+						Life l = new Carnivore(createId(), name, 1, lifespan);
 						lives.add(l);
 						}
 					}
