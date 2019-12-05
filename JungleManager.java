@@ -11,8 +11,8 @@ public class JungleManager{
 	   System.out.println("1: Exit");
 	   System.out.println("2: Add Herbivore");   //need this
 	   System.out.println("3: Add Carnivore");   //need this
-	   System.out.println("5: Add plant");
-	   System.out.println("4: Show Current Status");
+	   System.out.println("4: Add plant");
+	   System.out.println("5: Show Current Status");
 	   System.out.println("6: Run X day");
 	   System.out.println("7: Run till unstable");
       
