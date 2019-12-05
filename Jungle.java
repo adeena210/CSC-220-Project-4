@@ -19,18 +19,36 @@ public class Jungle{
 
 	public Jungle(){ //default constructor
 		 Scanner sc=null;
+		 status= "stable";
+		 lives= new ArrayList<Life>();
 		try{
 			File input = new File("input.txt");
 			sc = new Scanner(input);
 		
 		 	try{
+                sc.next();
+                sc.next();
 				properties.put("capacity", sc.nextFloat());
+				sc.next();
+				sc.next();
 				properties.put("herbivoreEatingProbability",sc.nextFloat());
+				sc.next();
+				sc.next();
 				properties.put("carnivoreEatingProbability",sc.nextFloat());
+				sc.next();
+				sc.next();
 				properties.put("herbivoreStarvationMax",sc.nextFloat());
+				sc.next();
+				sc.next();
 				properties.put("carnivoreStarvationMax",sc.nextFloat());
+				sc.next();
+				sc.next();
 				properties.put("plantBirthingInverval",sc.nextFloat());
+				sc.next();
+				sc.next();
 				properties.put("herbivoreBirthingInverval",sc.nextFloat());
+				sc.next();
+				sc.next();
 				properties.put("carnivoreBirthingInverval",sc.nextFloat());
 				
 				
@@ -58,7 +76,10 @@ public class Jungle{
 						Life l= new Plant(createId(), name, 1, lifespan);
 						lives.add(l);
 						}	
-						}		
+						}
+					if (lives.size()==properties.get("capacity"))
+						 status="unstable";
+
 					
 			}}
 			catch (InputMismatchException excpt){
@@ -75,14 +96,24 @@ public class Jungle{
 				sc.close();
 		}
 
-		status= "unstable";
-		lives= new ArrayList<Life>();
+		for (String key: properties.keySet()){
+            
+            String value = properties.get(key).toString();  
+            System.out.println(key + "...." + value);  
+} 
+    System.out.println("size "+lives.size());
+
+	
+
+		
+		
 		dayNumber=0;
 		deathLog="";
 		eatingLog="";
 		plantCount=0;
 		herbivoreCount=0;
 		carnivoreCount=0;
+		System.out.print("Status:"+status);
 		
 	}
 
@@ -228,7 +259,7 @@ public class Jungle{
 			output=new FileOutputStream("output.txt",true);
 	   
 	 	output.write(("Day: "+dayNumber+" Capacity: "+capacity).getBytes());
-		if (status.equals("unstable")){	
+		if (status.equals("stable")){	
 	 	output.write(("Eating today: "+ eatingLog).getBytes());
 	 	output.write(("Death: "+ deathLog).getBytes());
 	 	output.write(("Status: "+status).getBytes());
