@@ -55,8 +55,9 @@ public class JungleManager{
                 Life n= new Carnivore(id, name, 1, lifespan);
                 j.addLife(n);
         	}
-             if(j.getStatus().equals("unstable"))
+             if(j.getStatus().equals("unstable")){
                  System.out.println("WARNING! Jungle is unstable");
+	     }
              printOptions(j);
              break;
 	    
@@ -78,8 +79,9 @@ public class JungleManager{
                 j.addLife(l);
 
         	}
-            if(j.getStatus().equals("unstable"))
+            if(j.getStatus().equals("unstable")){
                 System.out.println("WARNING! Jungle is unstable");
+	    }
             printOptions(j);
             break;
                     
