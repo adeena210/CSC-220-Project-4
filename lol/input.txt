@@ -1,0 +1,14 @@
+capacity = 50
+herbivoreEatingProbability = 0.7
+carnivoreEatingProbability = 0.5
+herbivoreStarvationMax = 3
+carnivoreStarvationMax = 5
+plantBirthingInverval = 7
+herbivoreBirthingInverval = 7
+carnivoreBirthingInverval = 7
+Cow herbivore 3 20
+Goat herbivore 5 10
+Tiger carnivore 3 10
+Lion carnivore 1 5
+Grass plant 10 5
+Alfalfa plant 20 3
