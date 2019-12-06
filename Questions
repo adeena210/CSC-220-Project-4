@@ -1,2 +1,0 @@
-why isn't the abstract eat method in Animal instead of Life? 
-If it's supposed to be in Life, How do we implement two different eats in Herbivores and Carnivores?
